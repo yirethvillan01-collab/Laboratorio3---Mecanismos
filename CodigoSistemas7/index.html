@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sakura Kitchen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1>Sakura Kitchen</h1>
+  </header>
+
+  <section id="controles">
+    <label for="dish-select">Plato:</label>
+    <select id="dish-select"></select>
+
+    <label for="chefs-select">Chefs (paralelo):</label>
+    <select id="chefs-select">
+      <option value="1">1</option>
+      <option value="2" selected>2</option>
+      <option value="3">3</option>
+    </select>
+
+    <button type="button" id="btn-start">Iniciar</button>
+    <button type="button" id="btn-reset">Reiniciar</button>
+  </section>
+
+  <p id="dish-preview"></p>
+
+  <main id="kitchen-grid">
+
+    <article class="model-panel" id="panel-sequential">
+      <h2>No concurrente</h2>
+      <p class="desc">Un chef que hace una tarea detrás de otra.</p>
+      <p>Tiempo: <span class="clock-value" data-clock="sequential">—</span></p>
+      <p>Chef Aki: <span class="chef-status" data-chef-status="sequential">En espera</span></p>
+      <p class="active-task-banner" data-active="sequential">Ninguna tarea en ejecución</p>
+      <ul class="task-list" data-tasks="sequential"></ul>
+    </article>
+
+    <article class="model-panel" id="panel-concurrent">
+      <h2>Concurrente</h2>
+      <p class="desc">Un chef que cambia de una tarea a otra.</p>
+      <p>Tiempo: <span class="clock-value" data-clock="concurrent">—</span></p>
+      <p>Chef Mei: <span class="chef-status" data-chef-status="concurrent">En espera</span></p>
+      <p class="switch-banner" id="switch-banner" hidden>Cambio de contexto</p>
+      <p class="active-task-banner" data-active="concurrent">Ninguna tarea en ejecución</p>
+      <p>Cambios de contexto: <strong id="switch-count">0</strong></p>
+      <ul class="task-list" data-tasks="concurrent"></ul>
+    </article>
+
+    <article class="model-panel" id="panel-parallel">
+      <h2>Paralelo</h2>
+      <p class="desc">Varios chefs trabajando al mismo tiempo.</p>
+      <p>Tiempo: <span class="clock-value" data-clock="parallel">—</span></p>
+      <div class="sync-box" data-sync-box></div>
+      <div class="chefs-board" data-chefs-board></div>
+    </article>
+
+  </main>
+
+  <section id="results-panel">
+    <h2>Resultados</h2>
+    <div class="table-wrap">
+      <table id="results-table">
+        <thead>
+          <tr>
+            <th>Modelo</th>
+            <th>Tiempo total</th>
+            <th>Chefs</th>
+            <th>Tareas</th>
+            <th>Mejora vs. no concurrente</th>
+          </tr>
+        </thead>
+        <tbody id="results-body">
+          <tr class="empty-row">
+            <td colspan="5">Aún no hay resultados.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

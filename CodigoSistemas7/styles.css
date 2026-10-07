@@ -1,0 +1,293 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fdf5e6;
+  color: #222;
+  margin: 0;
+}
+
+
+header {
+  background-color: #a01818;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-bottom: 4px solid #d4a017;
+}
+
+header h1 {
+  margin: 0 0 8px 0;
+}
+
+header p {
+  margin: 0;
+}
+
+
+
+#controles {
+  text-align: center;
+  padding: 15px;
+}
+
+select,
+button {
+  font-size: 15px;
+  padding: 6px 10px;
+  margin: 5px;
+}
+
+button {
+  background-color: #a01818;
+  color: white;
+  border: 1px solid #700;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+  border-color: gray;
+  cursor: not-allowed;
+}
+
+#dish-preview {
+  text-align: center;
+  font-style: italic;
+  margin: 0;
+  padding: 0 15px;
+}
+
+
+#kitchen-grid {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  align-items: flex-start;
+}
+
+.model-panel {
+  flex: 1;
+  min-width: 0;
+  background-color: white;
+  border: 2px solid #a01818;
+  padding: 12px;
+}
+
+.model-panel h2 {
+  margin: 0 0 5px 0;
+  color: #a01818;
+  font-size: 20px;
+}
+
+.desc {
+  margin-top: 0;
+  color: #555;
+}
+
+.clock-value {
+  font-weight: bold;
+}
+
+.chef-status.is-busy {
+  color: #c77c00;
+}
+
+.chef-status.is-done {
+  color: green;
+}
+
+.active-task-banner {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.switch-banner {
+  display: none;
+  background-color: orange;
+  text-align: center;
+  font-weight: bold;
+  padding: 6px;
+}
+
+.switch-banner.is-visible {
+  display: block;
+}
+
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task-card {
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: white;
+}
+
+.task-card.is-preparing {
+  border-color: #d4a017;
+  background-color: #fff8d6;
+}
+
+.task-card.is-completed {
+  border-color: green;
+  background-color: #e6f5e6;
+}
+
+.task-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.task-meta {
+  color: #666;
+  white-space: nowrap;
+}
+
+progress {
+  width: 100%;
+  height: 12px;
+}
+
+.status-pill {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #666;
+}
+
+.status-pill.preparing {
+  color: #c77c00;
+  font-weight: bold;
+}
+
+.status-pill.completed {
+  color: green;
+  font-weight: bold;
+}
+
+.chef-lane {
+  border: 1px dashed green;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.chef-lane h3 {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 8px 0;
+  font-size: 15px;
+}
+
+
+#results-panel {
+  margin: 0 20px 20px 20px;
+  padding: 12px;
+  background-color: white;
+  border: 2px solid #a01818;
+}
+
+#results-panel h2 {
+  margin-top: 0;
+  color: #a01818;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+th,
+td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #a01818;
+  color: white;
+}
+
+.empty-row td {
+  text-align: center;
+  color: #666;
+}
+
+.winner td {
+  background-color: #e6f5e6;
+}
+
+
+@media (max-width: 800px) {
+  #kitchen-grid {
+    flex-direction: column;
+  }
+
+  .model-panel {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+
+/* Sincronización: mutex y barrera */
+.station-tag {
+  color: #a01818;
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.task-card.is-waiting {
+  border-color: #c0392b;
+  background-color: #fdeaea;
+}
+
+.status-pill.waiting {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+.sync-box {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.sync-box h3 {
+  margin: 0 0 6px 0;
+  font-size: 14px;
+  color: #a01818;
+}
+
+.sync-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sync-state li {
+  margin-bottom: 3px;
+}
+
+.sync-log {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed #bbb;
+  color: #555;
+  font-family: monospace;
+  font-size: 12px;
+}
